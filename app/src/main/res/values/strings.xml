@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">RecyclerViewExample</string>
+    <dimen name="margin">18dp</dimen>
+</resources>
