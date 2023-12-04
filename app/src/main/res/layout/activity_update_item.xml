@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UpdateItemActivity"
-
-    android:layout_marginVertical="400px"
     android:layout_marginHorizontal="180px"
-    android:padding="30px">
 
+    android:layout_marginVertical="280px"
+    android:padding="30px"
+    tools:context=".UpdateItemActivity">
 
 
     <EditText
@@ -58,14 +57,32 @@
         android:id="@+id/button_update_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:paddingHorizontal="120px"
         android:paddingVertical="50px"
-        android:text="CONFIRM"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
 
+        android:text="CONFIRM"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_delete_item"
         app:layout_constraintEnd_toEndOf="@+id/et_ratingEdit"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/et_ratingEdit"
         app:layout_constraintTop_toBottomOf="@+id/et_ratingEdit" />
+
+    <Button
+        android:id="@+id/button_delete_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:paddingHorizontal="120px"
+        android:paddingVertical="50px"
+        android:text="DELETE"
+
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.9"
+        app:layout_constraintStart_toStartOf="@+id/button_update_item"
+        app:layout_constraintTop_toBottomOf="@+id/button_update_item" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.recyclerviewexample
+package com.example.sqliteopenhelper
 
 import android.content.ContentValues
 import android.content.Context
@@ -120,6 +120,22 @@ class MyDatabaseHelper(private val context: Context) : SQLiteOpenHelper(context,
             // Insertion failed
             Toast.makeText(context, "Update failed",Toast.LENGTH_SHORT).show()
         }
+    }
+
+    fun deleteOneRow(rowId: Int) {
+
+        val  db : SQLiteDatabase = this.writableDatabase
+        val whereClause = "$COLUMN_ID = ?"
+        val whereArgs = arrayOf(rowId.toString())
+        val rowDeleted = db.delete(TABLE_NAME, whereClause, whereArgs)
+
+        if(rowDeleted != -1){
+            Toast.makeText(context, "Deletion successful",Toast.LENGTH_SHORT).show()
+        }
+        else{
+            Toast.makeText(context, "Deletion failed",Toast.LENGTH_SHORT).show()
+        }
+
 
     }
 }

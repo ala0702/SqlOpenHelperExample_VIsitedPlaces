@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.recyclerviewexample"
+    namespace = "com.example.sqliteopenhelper"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.recyclerviewexample"
+        applicationId = "com.example.sqliteopenhelper"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

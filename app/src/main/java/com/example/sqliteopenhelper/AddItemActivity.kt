@@ -1,10 +1,9 @@
-package com.example.recyclerviewexample
+package com.example.sqliteopenhelper
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import androidx.appcompat.widget.Toolbar
 
 class AddItemActivity : AppCompatActivity() {
 

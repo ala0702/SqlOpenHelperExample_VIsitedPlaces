@@ -1,5 +1,7 @@
-package com.example.recyclerviewexample
+package com.example.sqliteopenhelper
 
+import android.app.ActionBar
+import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -14,6 +16,7 @@ class UpdateItemActivity : AppCompatActivity() {
     private lateinit var town_input : EditText
     private lateinit var  rating_input: EditText
     private lateinit var button_update_position: Button
+    private lateinit var button_delete_position: Button
 
     private var itemId by Delegates.notNull<Int>()
     private lateinit var countryName: String
@@ -28,9 +31,14 @@ class UpdateItemActivity : AppCompatActivity() {
         town_input = findViewById(R.id.et_townEdit)
         rating_input = findViewById(R.id.et_ratingEdit)
         button_update_position = findViewById(R.id.button_update_item)
+        button_delete_position = findViewById(R.id.button_delete_item)
 
         //First call this before button update!!
         getAndSetIntentData()
+
+        //changing navbar
+        val ab : androidx.appcompat.app.ActionBar? = getSupportActionBar()
+        ab?.setTitle(countryName)
 
         button_update_position.setOnClickListener{
             val db = MyDatabaseHelper(this)
@@ -38,9 +46,12 @@ class UpdateItemActivity : AppCompatActivity() {
             db.updateData(itemId, country_input.text.toString(), town_input.text.toString(), rating_input.text.toString().toFloat())
         }
 
-
-
+        button_delete_position.setOnClickListener{
+            val db = MyDatabaseHelper(this)
+            db.deleteOneRow(itemId)
+        }
     }
+
 
     fun getAndSetIntentData() {
         if (intent.hasExtra("itemId") && intent.hasExtra("countryName") &&
@@ -63,5 +74,17 @@ class UpdateItemActivity : AppCompatActivity() {
             Toast.makeText(this, "No data!", Toast.LENGTH_SHORT).show()
         }
     }
+
+    fun confirmDialog() {
+        val builder : AlertDialog.Builder =  AlertDialog.Builder(this)
+        builder.setTitle("Deletion of $countryName - $townName" )
+        builder.setMessage("Are you sure to delete this position?")
+        builder.setPositiveButton("Yes"){ dialog, which ->
+            val db = MyDatabaseHelper(this)
+            db.deleteOneRow(itemId)
+        }
+
+    }
+
 
 }

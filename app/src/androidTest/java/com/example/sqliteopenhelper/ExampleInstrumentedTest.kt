@@ -1,4 +1,4 @@
-package com.example.recyclerviewexample
+package com.example.sqliteopenhelper
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

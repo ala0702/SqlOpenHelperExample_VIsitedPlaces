@@ -1,4 +1,4 @@
-package com.example.recyclerviewexample
+package com.example.sqliteopenhelper
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.imageview.ShapeableImageView
 
 class MyAdapter(private val countriesList: ArrayList<Place>) :
     RecyclerView.Adapter<MyAdapter.MyViewHolder>() {

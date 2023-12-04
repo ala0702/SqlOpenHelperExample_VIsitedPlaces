@@ -1,4 +1,4 @@
-package com.example.recyclerviewexample
+package com.example.sqliteopenhelper
 
 import org.junit.Test
 
