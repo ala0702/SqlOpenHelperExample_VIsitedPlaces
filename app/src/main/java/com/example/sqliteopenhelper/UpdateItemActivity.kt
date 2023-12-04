@@ -5,6 +5,8 @@ import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -37,8 +39,8 @@ class UpdateItemActivity : AppCompatActivity() {
         getAndSetIntentData()
 
         //changing navbar
-        val ab : androidx.appcompat.app.ActionBar? = getSupportActionBar()
-        ab?.setTitle(countryName)
+        val ab : androidx.appcompat.app.ActionBar? = supportActionBar
+        ab?.title ="Modifying place ' $countryName - $townName '"
 
         button_update_position.setOnClickListener{
             val db = MyDatabaseHelper(this)
@@ -47,8 +49,7 @@ class UpdateItemActivity : AppCompatActivity() {
         }
 
         button_delete_position.setOnClickListener{
-            val db = MyDatabaseHelper(this)
-            db.deleteOneRow(itemId)
+            confirmDialog()
         }
     }
 
@@ -76,15 +77,17 @@ class UpdateItemActivity : AppCompatActivity() {
     }
 
     fun confirmDialog() {
-        val builder : AlertDialog.Builder =  AlertDialog.Builder(this)
+        val builder =  AlertDialog.Builder(this)
         builder.setTitle("Deletion of $countryName - $townName" )
         builder.setMessage("Are you sure to delete this position?")
-        builder.setPositiveButton("Yes"){ dialog, which ->
-            val db = MyDatabaseHelper(this)
-            db.deleteOneRow(itemId)
-        }
+            .setPositiveButton("Yes"){ dialog, which ->
+                val db = MyDatabaseHelper(this)
+                db.deleteOneRow(itemId)
+            }
+            .setNegativeButton("No"){ dialog, which ->
 
+            }
+            .show()
     }
-
 
 }

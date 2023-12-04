@@ -135,7 +135,10 @@ class MyDatabaseHelper(private val context: Context) : SQLiteOpenHelper(context,
         else{
             Toast.makeText(context, "Deletion failed",Toast.LENGTH_SHORT).show()
         }
+    }
 
-
+    fun deleteAll(){
+        val db : SQLiteDatabase = this.writableDatabase
+        db.execSQL("DELETE FROM $TABLE_NAME")
     }
 }
