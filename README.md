@@ -8,7 +8,7 @@ This mobile application serves as a demonstration of how `SqLiteOpenHelper` work
 
 - Implements SQLiteOpenHelper in Kotlin
 - Utilizes RecyclerView for efficient display of database elements
-- Demonstrates basic CRUD operations (Create, Read, Update, Delete)
+- Demonstrates operations (Create, Read, Update, Delete)
 
 ## Usage
 
